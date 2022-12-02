@@ -1,2 +1,20 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<h2>商品新規登録</h2>
+
+  <%= form_with model: @post_image do |f| %>
+    <p>画像</p>
+    <%= f.file_field :image, accept: "image/*" %>
+
+    <p>商品名</p>
+    <%= f.text_field :name %>
+
+    <p>説明</p>
+    <%= f.text_field :introduction %>
+
+    <p>税抜価格</p>
+    <%= f.text_field :price %>
+
+    <p>販売ステータス</p>
+    <%= f.text_field :is_active %>
+
+    <%= f.submit '投稿' %>
+  <% end %>

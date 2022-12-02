@@ -1,25 +1,23 @@
 Rails.application.routes.draw do
   #order_detailもありわかりません質問
-  
+
   namespace :admin do
     get 'orders/show'
     #updateもあり
   end
-  
+
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
     #updataもあり
   end
-  
+
   namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    resources :items, only: [:new, :create, :index, :show, :edit, :update]
     #create,updateも
   end
+
   namespace :admin do
     root to: 'homes#top'
   end
