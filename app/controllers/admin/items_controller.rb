@@ -9,15 +9,22 @@ class Admin::ItemsController < ApplicationController
 
   def create
     item = Item.new(post_image_params)
-    item.user_id = current_user.id
     item.save
     redirect_to admin_items_path
   end
 
   def show
+    @item=Item.find(params[:id])
   end
 
   def edit
+    @item=Item.find(params[:id])
+  end
+
+  def update
+    item =Item.find(params[:id])
+    item.update
+    redirect_to admin_items_path
   end
 
   private

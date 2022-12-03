@@ -6,14 +6,15 @@
   <% end %>
 
   <% @items.each do |item| %>
-  <p>画像</p>
   <%#= image_tag item.get_image %>
-  
+
   <p>商品ID</p>
   <%=item.id %>
 
   <p>商品名</p>
+  <%= link_to admin_item_path(item.id) do %>
   <%=item.name %>
+  <% end %>
 
   <p>税抜価格</p>
   <%=item.price %>
