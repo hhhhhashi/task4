@@ -2,14 +2,12 @@ Rails.application.routes.draw do
   #order_detailもありわかりません質問
 
   namespace :admin do
-    get 'orders/show'
+    resources :orders, only: [:show, :update]
     #updateもあり
   end
 
   namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+    resources :customers, only: [:index, :show, :edit, :update]
     #updataもあり
   end
 
