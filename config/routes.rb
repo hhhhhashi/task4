@@ -1,4 +1,33 @@
 Rails.application.routes.draw do
+  namespace :public do
+    resources :adresses, only: [:indx, :show, :create, :update, :destroy]
+  end
+
+  namespace :public do
+    resources :orders, only: [:show, :new, :index, :confirm, :complete]
+  end
+
+  namespace :public do
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+  end
+
+  namespace :public do
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdrawal]
+  end
+
+  namespace :public do
+    resources :items, only: [:show, :index]
+  end
+
+  namespace :public do
+    get '/' => 'homes#top'
+    get 'about' => 'homes#about', as: 'list'
+
+
+  end
+
+
+
   #order_detailもありわかりません質問
 
   namespace :admin do
@@ -19,6 +48,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
   end
+
 
 
   # 顧客用
