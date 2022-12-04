@@ -23,7 +23,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     item =Item.find(params[:id])
-    item.update
+    item.update(post_image_params)
     redirect_to admin_items_path
   end
 
