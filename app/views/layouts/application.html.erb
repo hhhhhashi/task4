@@ -41,17 +41,17 @@
                   </li>
                 <% elsif customer_signed_in? %>
                   <li class="nav-item">
-                    <%= link_to public_customer_path(current_customer), class: 'nav-link text-light' do %>
+                    <%= link_to my_page_path(current_customer), class: 'nav-link text-light' do %>
                     マイページ
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to public_items_path, class: 'nav-link text-light' do %>
+                    <%= link_to items_path, class: 'nav-link text-light' do %>
                     商品一覧
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to public_cart_items_path, class: 'nav-link text-light' do %>
+                    <%= link_to cart_items_path, class: 'nav-link text-light' do %>
                     カート
                     <% end %>
                   </li>
@@ -62,12 +62,12 @@
                   </li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to public_list_path, class: 'nav-link text-light' do %>
+                    <%= link_to about_path, class: 'nav-link text-light' do %>
                     About
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to public_items_path, class: 'nav-link text-light' do %>
+                    <%= link_to items_path, class: 'nav-link text-light' do %>
                     商品一覧
                     <% end %>
                   </li>

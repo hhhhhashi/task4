@@ -6,7 +6,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_out_path_for(resource)
-    public_path
+    root_path
   end
 
   # GET /resource/sign_up
@@ -57,7 +57,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    public_items_path
+    items_path
   end
 
   # The path used after sign up for inactive accounts.
