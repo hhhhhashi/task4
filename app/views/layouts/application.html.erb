@@ -41,43 +41,43 @@
                   </li>
                 <% elsif customer_signed_in? %>
                   <li class="nav-item">
-                    <%= link_to admin_items_path, class: 'nav-link text-light' do %>
+                    <%= link_to public_customer_path(current_user), class: 'nav-link text-light' do %>
                     マイページ
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+                    <%= link_to public_items_path, class: 'nav-link text-light' do %>
                     商品一覧
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to admin_root_path, class: 'nav-link text-light' do %>
+                    <%= link_to public_cart_items_path, class: 'nav-link text-light' do %>
                     カート
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+                    <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
                     ログアウト
                     <% end %>
                   </li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to new_admin_session_path, class: 'nav-link text-light' do %>
-                    ログイン
+                    <%= link_to public_list_path, class: 'nav-link text-light' do %>
+                    About
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+                    <%= link_to public_items_path, class: 'nav-link text-light' do %>
                     商品一覧
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to admin_items_path, class: 'nav-link text-light' do %>
-                    商品一覧
+                    <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+                    新規登録
                     <% end %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to new_admin_session_path, class: 'nav-link text-light' do %>
+                    <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
                     ログイン
                     <% end %>
                   </li>
