@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    get '/' => 'homes#top'
+    root to:"homes#top"
     get 'about' => 'homes#about', as: 'about'
   end
 
