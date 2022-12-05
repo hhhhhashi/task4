@@ -7,7 +7,7 @@
 
   <p>税込価格(税抜価格)<%= @item.price %></p>
 
-  <%= form_with model: @item, url:cart_items_path  do |f| %>
+  <%= form_with model: @cart_item, url: cart_items_path  do |f| %>
 
     <p>個数選択</p>
     <%= f.select :amount,*[1..10] %>

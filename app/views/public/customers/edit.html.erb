@@ -1,2 +1,14 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<main>
+  <h2>会員情報編集</h2>
+
+  <%= form_with model: @customer,url: information_edit_path do |f| %>
+    <p>氏名<%= f.text_field :last_name %> <%= f.text_field :first_name %></p>
+    <p>フリガナ<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></p>
+    <p>郵便番号<%= f.text_field :postal_code  %></p>
+    <p>住所<%= f.text_field :adress %></p>
+    <p>電話番号<%= f.text_field :telephone_number %></p>
+    <p>メールアドレス<%= f.text_field :email %></p>
+    <%= f.submit '変更を保存' %>
+  <% end %>
+
+</main>
