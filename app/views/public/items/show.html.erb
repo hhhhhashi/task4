@@ -12,6 +12,8 @@
     <p>個数選択</p>
     <%= f.select :amount,*[1..10] %>
 
+    <%= f.hidden_field :item_id, value:@item.id %>
+
     <%= f.submit 'カートに入れる' %>
   <% end %>
 </main>

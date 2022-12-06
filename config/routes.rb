@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :customers, only: [:update, :unsubscribe, :withdrawal]
+    resources :customers, only: [:unsubscribe, :withdrawal]
     get 'my_page' => 'customers#show'
     get 'information/edit' => 'customers#edit'
+    patch 'information/edit' => 'customers#update'
 
   end
 
