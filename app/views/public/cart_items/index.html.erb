@@ -1,7 +1,7 @@
 <main>
   <h2>ショッピングカート</h2>
 
-  <%= button_to "全て削除", destroy_all_cart_item_path, method: :delete %>
+  <%= link_to "全て削除", cart_items_path, method: :delete %>
 
   <% @cart_items.each do |cart_item| %>
 
