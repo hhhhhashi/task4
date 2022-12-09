@@ -4,19 +4,23 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :orders, only: [:show, :new, :index, :confirm, :complete]
+    resources :orders, only: [:show, :new, :index, :create]
+    post 'confirm' => 'orders#confirm'
+    get 'confirm' => 'orders#confirm'
+    get 'complete' => 'orders#complete'
   end
 
   scope module: :public do
     delete 'cart_items' => 'cart_items#destroy_all'
-    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
   end
 
   scope module: :public do
-    resources :customers, only: [:unsubscribe, :withdrawal]
     get 'my_page' => 'customers#show'
     get 'information/edit' => 'customers#edit'
     patch 'information/edit' => 'customers#update'
+    get 'unsubscribe' => 'customers#unsubscribe'
+    patch 'withdrawal' => 'customers#withdrawal'
 
   end
 
