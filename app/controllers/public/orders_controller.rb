@@ -34,7 +34,7 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:address]
       @order.name = params[:name]
     end
-    binding.pry
+    #binding.pry
   end
 
   def complete
