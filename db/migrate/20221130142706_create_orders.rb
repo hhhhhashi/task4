@@ -11,7 +11,6 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :payment_method
       t.integer :status
       
-
       t.timestamps
     end
   end

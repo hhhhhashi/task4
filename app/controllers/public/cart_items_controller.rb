@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items=CartItem.all
+    @total_price=0
   end
 
   def create
@@ -9,10 +10,6 @@ class Public::CartItemsController < ApplicationController
     @cart_item.save
     redirect_to cart_items_path
   end
-
-  #def total_price
-    #cart_items.to_a.sum { |item|item.total_price }
-  #end
 
   def update
   end

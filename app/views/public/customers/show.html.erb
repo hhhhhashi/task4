@@ -22,4 +22,10 @@
   <p>メールアドレス</p>
   <%= @customer.email %>
 
+  <h3>配送先</h3>
+  <%= link_to '一覧を見る', adresses_path %>
+
+  <h3>注文履歴</h3>
+  <%= link_to '一覧を見る', orders_path %>
+
 </main>

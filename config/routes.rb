@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope module: :public do
-    resources :adresses, only: [:indx, :show, :create, :update, :destroy]
+    resources :adresses, only: [:index, :show, :create, :update, :destroy]
   end
 
   scope module: :public do

@@ -59,3 +59,5 @@ gem 'devise'
 
 gem 'pry-byebug'
 
+gem "enum_help"
+
