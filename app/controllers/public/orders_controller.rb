@@ -4,6 +4,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders=current_customer.orders
+    #@cart_items=current_customer.cart_items
   end
 
   def show
