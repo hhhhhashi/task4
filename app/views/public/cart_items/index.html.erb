@@ -5,22 +5,22 @@
 
   <% @cart_items.each do |cart_item| %>
 
-  <p>商品名</p>
-  <%= cart_item.item.name %>
+    <p>商品名</p>
+    <%= cart_item.item.name %>
 
-  <p>単価</p>
-  <%= (cart_item.item.price * 1.1).floor %>
+    <p>単価</p>
+    <%= (cart_item.item.price * 1.1).floor %>
 
-  <p>数量</p>
-  <%= cart_item.amount %>
+    <p>数量</p>
+    <%= cart_item.amount %>
 
-  <p>小計<p/>
-  <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
-  <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
+    <p>小計<p/>
+    <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
+    <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
 
-  <% if cart_item.customer == current_customer %>
-    <%= link_to "削除", cart_item_path(cart_item), method: :delete %>
-  <% end %>
+    <% if cart_item.customer == current_customer %>
+      <%= link_to "削除", cart_item_path(cart_item), method: :delete %>
+    <% end %>
 
   <% end %>
 
