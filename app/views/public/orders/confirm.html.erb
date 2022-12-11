@@ -16,14 +16,18 @@
   <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
   <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
 
-  <% if cart_item.customer == current_customer %>
-    <%= link_to "削除", cart_item_path(cart_item), method: :delete %>
-  <% end %>
+  
 
   <% end %>
+  
+  <p>送料</p>
+  <p>800</p>
 
   <P>合計金額</P>
   <%= @total_price %>
+  
+  <p>請求金額</p>
+  <%= @total_price + 800 %>
 
 
 

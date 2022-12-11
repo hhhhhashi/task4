@@ -36,7 +36,7 @@ class Public::OrdersController < ApplicationController
     end
     #binding.pry
 
-    @cart_items=CartItem.all
+    @cart_items=current_customer.cart_items
     @total_price=0
   end
 
