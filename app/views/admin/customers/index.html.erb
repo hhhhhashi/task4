@@ -9,7 +9,9 @@
   <%=customer.id %>
 
   <p>氏名</p>
-  <%=customer.last_name %><%=customer.first_name %>
+  <%= link_to admin_customer_path(customer) do %>
+  <%=customer.last_name+customer.first_name %>
+  <% end %>
 
   <p>メールアドレス</p>
   <%=customer.email %>

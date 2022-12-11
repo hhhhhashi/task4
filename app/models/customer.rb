@@ -9,4 +9,6 @@ class Customer < ApplicationRecord
   has_many :orders, dependent: :destroy
 
   has_many :aderesses, dependent: :destroy
+  
+  enum is_deleted: { validity: 0, withdrawal: 1 }
 end
