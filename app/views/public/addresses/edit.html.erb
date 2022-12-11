@@ -1,5 +1,19 @@
 <main>
   <h2>配送先編集</h2>
-  
-  
+
+  <%= form_with model: @address ,url: address_path(@address) ,method: :patch do |f| %>
+    <p>郵便番号(ハイフンなし)</p>
+    <%= f.text_field :postal_code %>
+
+    <p>住所</p>
+    <%= f.text_field :address %>
+
+    <p>宛名</p>
+    <%= f.text_field :name %>
+
+    <%= f.submit "変更内容を保存" %>
+
+  <% end %>
+
+
 </main>
