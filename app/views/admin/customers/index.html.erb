@@ -2,8 +2,6 @@
   <h2>会員一覧</h2>
 
   <% @customers.each do |customer| %>
-  <p>画像</p>
-  <%#= image_tag item.get_image %>
 
   <p>会員ID</p>
   <%=customer.id %>
@@ -17,7 +15,11 @@
   <%=customer.email %>
 
   <p>ステータス</p>
-  <%=customer.is_deleted %>
+    <% if customer.is_deleted == false %>
+       有効
+    <% else customer.is_deleted == true %>
+       退会
+    <% end %>
 
   <% end %>
 

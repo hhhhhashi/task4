@@ -15,7 +15,12 @@
 
   <p>メールアドレス</p><%= @customer.email %>
 
-  <p>会員ステータス</p><%= @customer.is_deleted %>
+  <p>会員ステータス</p>
+  <% if @customer.is_deleted == false %>
+    有効
+  <% else @customer.is_deleted == true %>
+    退会
+  <% end %>
 
   <%= link_to "編集する", edit_admin_customer_path(@customer) %>
   <%= link_to "注文履歴一覧を見る", admin_customers_path %>

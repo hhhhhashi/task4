@@ -5,9 +5,3 @@ ja:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
 
-ja:
-    enums:
-      customer:
-        is_deleted:
-          validity: "有効"
-          withdrawal: "退会"
