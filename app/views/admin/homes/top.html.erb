@@ -1,21 +1,19 @@
 <main>
   <h2>注文履歴一覧</h2>
 
-  <% @order_details.each do |order_detail| %>
-  <p>画像</p>
-  <%#= image_tag item.get_image %>
+  <% @orders.each do |order| %>
 
   <p>購入日時</p>
-  <%=order_detail.created_at %>
+  <%=order.created_at %>
 
   <p>購入者</p>
-  <%=order_detail.customer_id %>
+  <%=order.customer_id %>
 
   <p>注文個数</p>
-  <%=order_detail.amount %>
+  <%=order.amount %>
 
   <p>注文ステータス</p>
-  <%=order_detail.making_status %>
+  <%=order.making_status %>
 
   <% end %>
 </main>

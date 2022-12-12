@@ -5,13 +5,14 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders=current_customer.orders
-    #@cart_items=current_customer.cart_items
   end
 
   def show
+    #注文履歴詳細画面
   end
 
   def create
+    
   end
 
   def confirm
@@ -43,6 +44,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+    #注文完了画面OK
   end
 
   private

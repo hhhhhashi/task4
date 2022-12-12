@@ -36,15 +36,16 @@ Rails.application.routes.draw do
 
 
   #order_detailもありわかりません質問
+  namespace :admin do
+    resources :order_details, only: [:update]
+  end
 
   namespace :admin do
     resources :orders, only: [:show, :update]
-    #updateもあり
   end
 
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
-    #updataもあり
   end
 
   namespace :admin do

@@ -1,5 +1,6 @@
 <main>
   <h2>注文情報確認画面</h2>
+  <%#form_withで囲う必要があるのか=>データベースに情報を送るためには？%>
 
   <% @cart_items.each do |cart_item| %>
 
@@ -37,6 +38,8 @@
   <p>お届け先</p>
   <%= @order.address %>
 
-
+  <%#submit??%>
   <%= link_to '注文を確定する', complete_path %>
+  
+  <%#end%>
 </main>

@@ -12,6 +12,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    #数量の変更
   end
 
   def destroy

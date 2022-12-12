@@ -13,6 +13,7 @@
 
     <p>数量</p>
     <%= cart_item.amount %>
+    <%# 数量変更 %>
 
     <p>小計<p/>
     <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>

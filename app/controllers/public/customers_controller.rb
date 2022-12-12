@@ -14,6 +14,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+    #退会確認画面OK
   end
 
   def withdrawal
