@@ -50,7 +50,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :items, only: [:new, :create, :index, :show, :edit, :update]
-    #create,updateも
   end
 
   namespace :admin do

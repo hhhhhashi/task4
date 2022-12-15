@@ -12,7 +12,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    
+    order= Order.new(order_params)
+    order.save
+    redirect_to complete_path
   end
 
   def confirm
@@ -49,7 +51,7 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :customer_id, :shipping_cost, :total_payment, :status)
   end
 
 end

@@ -14,6 +14,10 @@
     <p>数量</p>
     <%= cart_item.amount %>
     <%# 数量変更 %>
+    <%= form_with model: cart_item do |f| %>
+    <%=f.number_field :amount %>
+    <%= f.submit "変更" %>
+    <% end %>
 
     <p>小計<p/>
     <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
