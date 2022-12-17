@@ -1,6 +1,8 @@
 <main>
   <%= form_with model: @customer,url: admin_customer_path(@customer),method: :patch do |f| %>
 
+    <h2><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h2>
+
     <p>氏名<%= f.text_field :last_name %> <%= f.text_field :first_name %></p>
     <p>フリガナ<%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %></p>
     <p>郵便番号<%= f.text_field :postal_code  %></p>

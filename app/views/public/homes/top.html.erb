@@ -8,12 +8,14 @@
 
   <% @items.each do |item| %>
 
-    <%= image_tag item.get_image %>
+    <%= image_tag item.get_profile_image(200,200) %>
+    <%#画像がデフォルトの状態に戻ってしまう%>
 
     <%= item.name %>
 
     <%= item.price %>
 
  <% end %>
+ <%= paginate @items %>
 
 </main>

@@ -14,7 +14,8 @@
     <%= f.text_field :price %>
 
     <p>販売ステータス</p>
-    <%= f.text_field :is_active %>
+    <p>販売中</p><%= f.radio_button(:is_active, true) %>
+    <p>販売停止中</p><%= f.radio_button(:is_active, false) %>
 
-    <%= f.submit '投稿' %>
+    <%= f.submit '新規登録' %>
   <% end %>

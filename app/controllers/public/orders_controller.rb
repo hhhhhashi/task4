@@ -5,16 +5,31 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders=current_customer.orders
+    @cart_items=current_customer.cart_items.all
   end
 
   def show
     #注文履歴詳細画面
+    @order=Order.find(params[:id])
+    @order_details=@order.order_details
+
   end
 
   def create
-    order= Order.new(order_params)
-    order.save
+    @order= Order.new(order_params)
+    #@order.status=0
+    @order.save
     redirect_to complete_path
+
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      @order_detail = @order.order_details.new
+      @order_detail.item_id = cart_item.item.id
+      @order_detail.price = cart_item.item.price
+      @order_detail.amount = cart_item.amount
+      @order_detail.making_status = 0
+      @order_detail.save
+    end
   end
 
   def confirm

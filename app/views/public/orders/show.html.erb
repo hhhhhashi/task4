@@ -1,6 +1,41 @@
 <main>
   <h2>注文履歴詳細</h2>
+
   <h3>注文情報</h3>
+  <p>注文日</p>
+  <%= @order.updated_at %>
+
+  <p>配送先</p>
+  <%= @order.address %>
+
+  <p>支払方法</p>
+  <%= @order.payment_method_i18n %>
+
+  <p>ステータス</p>
+  <%= @order.status_i18n %>
+
   <h3>請求情報</h3>
+  <p>商品合計</p>
+  <%= @order.total_payment %>
+
+  <p>配送料</p>
+  <p>800</p>
+
+  <p>ご請求額</p>
+  <%= @order.total_payment + 800 %>
+
   <h3>注文内容</h3>
+
+  <% @order_details.each do |order_detail| %>
+  <p>商品</p>
+  <%= order_detail.item.name %>
+  <p>単価(税込)</p>
+  <%= order_detail.price %>
+  <p>個数</p>
+  <%= order_detail.amount %>
+  <p>小計</p>
+  <%= order_detail.price*order_detail.amount %>
+  <% end %>
+
+
 </main>

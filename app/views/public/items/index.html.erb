@@ -4,7 +4,7 @@
   <% @items.each do |item| %>
 
     <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image %>
+    <%= image_tag item.get_profile_image(200,200) %>
     <% end %>
 
     <%= link_to item_path(item.id) do %>
@@ -14,5 +14,7 @@
     <%= item.price %>
 
  <% end %>
+ <%= paginate @items %>
+ <%#= ページネイト8つにしたい %>
 
 </main>

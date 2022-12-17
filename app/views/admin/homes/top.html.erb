@@ -7,13 +7,15 @@
   <%=order.created_at %>
 
   <p>購入者</p>
-  <%=order.customer_id %>
+  <%= link_to admin_order_path(order) do %>
+  <%=order.customer.last_name + order.customer.first_name %>
+  <% end %>
 
   <p>注文個数</p>
-  <%=order.amount %>
+  <%#=order.order_details.amount %>
 
   <p>注文ステータス</p>
-  <%=order.making_status %>
+  <%=order.status_i18n %>
 
   <% end %>
 </main>

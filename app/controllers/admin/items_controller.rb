@@ -30,6 +30,6 @@ class Admin::ItemsController < ApplicationController
   private
 
   def post_image_params
-    params.require(:item).permit(:name, :image, :introduction, :price, :is_active)
+    params.require(:item).permit(:name, :introduction, :price, :is_active)
   end
 end

@@ -1,13 +1,13 @@
 <main>
   <h2>注文情報確認画面</h2>
-  <%#form_withで囲う必要があるのか=>データベースに情報を送るためには？%>
 
   <% @cart_items.each do |cart_item| %>
 
   <p>商品名</p>
+  <%= image_tag cart_item.item.get_profile_image(200,200) %>
   <%= cart_item.item.name %>
 
-  <p>単価</p>
+  <p>単価(税込)</p>
   <%= (cart_item.item.price * 1.1).floor %>
 
   <p>数量</p>
@@ -24,7 +24,7 @@
   <p>送料</p>
   <p>800</p>
 
-  <P>合計金額</P>
+  <P>商品合計</P>
   <%= @total_price %>
 
   <p>請求金額</p>
@@ -47,8 +47,8 @@
   <%= f.hidden_field :shipping_cost, :value => @order.shipping_cost %>
   <%= f.hidden_field :total_payment, :value => @total_price %>
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-  <%= f.hidden_field :status, :value => 0 %>
-  <%#submit??%>
+  <%= f.hidden_field :status, :value => "waiting_deposit" %>
+
   <%= f.submit '注文を確定する' %>
 
   <% end %>

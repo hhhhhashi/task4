@@ -1,18 +1,18 @@
 <main>
   <h2>ショッピングカート</h2>
 
-  <%= link_to "全て削除", cart_items_path, method: :delete %>
+  <%= link_to "カートを空にする", cart_items_path, method: :delete %>
 
   <% @cart_items.each do |cart_item| %>
 
     <p>商品名</p>
+    <%= image_tag cart_item.item.get_profile_image(200,200) %>
     <%= cart_item.item.name %>
 
     <p>単価</p>
     <%= (cart_item.item.price * 1.1).floor %>
 
     <p>数量</p>
-    <%= cart_item.amount %>
     <%# 数量変更 %>
     <%= form_with model: cart_item do |f| %>
     <%=f.number_field :amount %>
@@ -24,7 +24,7 @@
     <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
 
     <% if cart_item.customer == current_customer %>
-      <%= link_to "削除", cart_item_path(cart_item), method: :delete %>
+      <%= link_to "削除する", cart_item_path(cart_item), method: :delete %>
     <% end %>
 
   <% end %>

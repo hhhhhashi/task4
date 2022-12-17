@@ -1,7 +1,5 @@
 <main>
   <h3>注文履歴一覧</h3>
-  <%#データベースの情報を受け取って表示させるためには？
-  注文ステータスの表示のさせ方%>
 
   <% @orders.each do |order| %>
     <p>注文日</p>
@@ -11,13 +9,17 @@
     <%= order.address %>
 
     <p>注文商品</p>
+    <% @cart_items.each do |cart_item| %>
+      <%= cart_item.item.name %>
+    <% end %>
 
     <p>支払金額</p>
     <%= order.total_payment %>
 
     <p>ステータス</p>
-    <%= order.status %>
+    <%= order.status_i18n %>
 
+    <p>注文詳細</p>
     <%= link_to "表示する", order_path(order) %>
 
   <% end %>

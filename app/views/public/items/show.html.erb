@@ -1,5 +1,5 @@
 <main>
-  <%= image_tag @item.get_image %>
+  <%= image_tag @item.get_profile_image(200,200) %>
 
   <P>商品名<%= @item.name %></P>
 
@@ -11,6 +11,7 @@
 
     <p>個数選択</p>
     <%= f.select :amount,*[1..10] %>
+    <%#=文字を入れたい%>
 
     <%= f.hidden_field :item_id, value:@item.id %>
 
