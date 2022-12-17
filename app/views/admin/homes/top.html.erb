@@ -12,7 +12,11 @@
   <% end %>
 
   <p>注文個数</p>
-  <%#=order.order_details.amount %>
+  <% @total_quantitiy=0 %>
+  <% order.order_details.each do |order_detail| %>
+    <% @total_quantitiy=@total_quantitiy + order_detail.amount %>
+  <% end %>
+  <%= @total_quantitiy %>
 
   <p>注文ステータス</p>
   <%=order.status_i18n %>
