@@ -1,5 +1,5 @@
 <main>
-  <h2>注文情報確認画面</h2>
+  <h2>注文情報確認</h2>
 
   <% @cart_items.each do |cart_item| %>
 
@@ -37,6 +37,8 @@
 
   <p>お届け先</p>
   <%= @order.address %>
+  <%= @order.postal_code %>
+  <%= @order.name %>
 
   <%= form_with model: @order do |f| %>
 

@@ -1,14 +1,29 @@
 <main>
   <h2>注文履歴詳細</h2>
   <p>購入者</p>
-  <%#= order.customer.name %>
+  <%= @order.customer.last_name + @order.customer.first_name %>
 
   <p>注文日</p>
+  <%= @order.created_at %>
+
   <p>配送先</p>
+  <%= @order.postal_code %>
+  <%= @order.address %>
+  <%= @order.name %>
+
   <p>支払方法</p>
+  <%= @order.payment_method_i18n %>
+
   <p>注文ステータス</p>
+  <%= form_with model: @order,url:admin_order_path(@order) do |f| %>
+  <%#= f.select :status,*[0..4] %>
+  <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+  <%= f.submit "更新" %>
+  
+  <% end %>
 
   <p>商品名</p>
+  
   <p>単価(税込)</p>
   <p>数量</p>
   <p>小計</p>

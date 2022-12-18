@@ -21,11 +21,13 @@
 
     <p>小計<p/>
     <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
-    <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
+
 
     <% if cart_item.customer == current_customer %>
       <%= link_to "削除する", cart_item_path(cart_item), method: :delete %>
     <% end %>
+
+    <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
 
   <% end %>
 

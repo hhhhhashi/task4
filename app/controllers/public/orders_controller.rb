@@ -54,7 +54,6 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
-    #binding.pry
 
     @cart_items=current_customer.cart_items
     @total_price=0
