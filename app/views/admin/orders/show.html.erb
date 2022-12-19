@@ -1,4 +1,5 @@
 <main>
+
   <h2>注文履歴詳細</h2>
   <p>購入者</p>
   <%= @order.customer.last_name + @order.customer.first_name %>
@@ -19,18 +20,61 @@
   <%#= f.select :status,*[0..4] %>
   <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
   <%= f.submit "更新" %>
-  
+
   <% end %>
 
-  <p>商品名</p>
-  
-  <p>単価(税込)</p>
-  <p>数量</p>
-  <p>小計</p>
-  <p>製作ステータス</p>
+
+
+  <div class="d-flex justify-content-between w-100">
+  <table class="table w-60">
+    <thead>
+      <th>商品名</th>
+      <th>単価</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+    </thead>
+    <tbody>
+      <% @order_details.each do |order_detail| %>
+        <tr>
+          <th><%= order_detail.item.name %></th>
+          <th><%= (order_detail.price * 1.1).floor %></th>
+          <th><%= order_detail.amount %></th>
+          <th>
+            <%= (order_detail.price * 1.1).floor * order_detail.amount %>
+            <% @total_price=@total_price + (order_detail.item.price * 1.1).floor*order_detail.amount %>
+          </th>
+          <th>
+            <%= form_with model: order_detail,url:admin_order_detail_path(order_detail) do |f| %>
+            <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+            <%= f.submit "更新" %>
+            <% end %>
+          </th>
+        </tr>
+      <% end %>
+
+    </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
 
   <p>商品合計</p>
+  <%= @total_price %>
+
   <p>送料</p>
+  <p>800円</P>
+
   <p>請求金額合計</p>
+  <%= @total_price + 800 %>
 
 </main>
