@@ -26,16 +26,26 @@
 
   <h3>注文内容</h3>
 
-  <% @order_details.each do |order_detail| %>
-  <p>商品</p>
-  <%= order_detail.item.name %>
-  <p>単価(税込)</p>
-  <%= order_detail.price %>
-  <p>個数</p>
-  <%= order_detail.amount %>
-  <p>小計</p>
-  <%= order_detail.price*order_detail.amount %>
-  <% end %>
 
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>商品</th>
+        <th>単価(税込)</th>
+        <th>個数</th>
+        <th>小計</th>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <th><%= order_detail.item.name %></th>
+          <th><%= order_detail.price %></th>
+          <th><%= order_detail.amount %></th>
+          <th><%= order_detail.price*order_detail.amount %></th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 </main>

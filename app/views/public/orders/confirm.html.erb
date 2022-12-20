@@ -1,44 +1,64 @@
 <main>
   <h2>注文情報確認</h2>
 
-  <% @cart_items.each do |cart_item| %>
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead class="table-light">
+        <th>商品名</th>
+        <th>単価(税込)</th>
+        <th>数量</th>
+        <th>小計</th>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+            <th>
+              <%= image_tag cart_item.item.get_profile_image(200,200) %>
+              <%= cart_item.item.name %>
+            </th>
+            <th><%= (cart_item.item.price * 1.1).floor %></th>
+            <th><%= cart_item.amount %></th>
+            <th>
+              <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
+              <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <p>商品名</p>
-  <%= image_tag cart_item.item.get_profile_image(200,200) %>
-  <%= cart_item.item.name %>
+  <table class="table w-20">
+      <tbody>
+        <tr>
+          <th><p>送料</p></th>
+          <th><p>800</p></th>
+        </tr>
 
-  <p>単価(税込)</p>
-  <%= (cart_item.item.price * 1.1).floor %>
+        <tr>
+          <th>商品合計</th>
+          <th><%= @total_price %></th>
+        </tr>
 
-  <p>数量</p>
-  <%= cart_item.amount %>
-
-  <p>小計<p/>
-  <%= (cart_item.item.price * 1.1).floor*cart_item.amount %>
-  <% @total_price=@total_price + (cart_item.item.price * 1.1).floor*cart_item.amount %>
-
-
-
-  <% end %>
-
-  <p>送料</p>
-  <p>800</p>
-
-  <P>商品合計</P>
-  <%= @total_price %>
-
-  <p>請求金額</p>
-  <%= @total_price + 800 %>
+        <tr>
+          <th>請求金額</th>
+          <th><%= @total_price + 800 %></th>
+        </tr>
+      </tbody>
+    </table>
 
 
+  <dl class="row">
+    <dt class="col-2">支払方法</dt>
+    <dd class="col-10"><%= @order.payment_method_i18n %></dd>
+    <dt class="col-2">お届け先</dt>
+    <dd class="col-10">
+      <%= @order.address %>
+      <%= @order.postal_code %>
+      <%= @order.name %>
+    </dd>
+  </dl>
 
-  <p>支払方法</p>
-  <%= @order.payment_method_i18n %>
-
-  <p>お届け先</p>
-  <%= @order.address %>
-  <%= @order.postal_code %>
-  <%= @order.name %>
 
   <%= form_with model: @order do |f| %>
 

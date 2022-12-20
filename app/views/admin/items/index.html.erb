@@ -5,28 +5,39 @@
   新規商品登録
   <% end %>
 
-  <% @items.each do |item| %>
-  <%#= image_tag item.get_image %>
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ステータス</th>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <th><%=item.id %></th>
 
-  <p>商品ID</p>
-  <%=item.id %>
+          <th>
+            <%= link_to admin_item_path(item.id) do %>
+            <%=item.name %>
+            <% end %>
+          </th>
 
-  <p>商品名</p>
-  <%= link_to admin_item_path(item.id) do %>
-  <%=item.name %>
-  <% end %>
+          <th><%=item.price %></th>
 
-  <p>税抜価格</p>
-  <%=item.price %>
-
-  <p>販売ステータス</p>
-  <% if item.is_active==true %>
-    販売中
-  <% elsif item.is_active==false %>
-    販売停止中
-  <% end %>
-
-  <% end %>
+          <th>
+            <% if item.is_active==true %>
+              販売中
+            <% elsif item.is_active==false %>
+              販売停止中
+            <% end %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 </main>
 

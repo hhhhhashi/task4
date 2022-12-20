@@ -15,19 +15,29 @@
 
   <% end %>
 
-  <% @addresses.each do |address| %>
 
-  <p>郵便番号 <%= address.postal_code %></p>
-  <p>住所 <%= address.address %></p>
-  <p>宛名<%= address.name %></p>
-  <%= link_to "編集する", edit_address_path(address) %>
-  <%= link_to "削除する", address_path(address), method: :delete %>
-
-  <% end %>
-
-
-
-
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @addresses.each do |address| %>
+        <tr>
+          <th><%= address.postal_code %></th>
+          <th><%= address.address %></th>
+          <th><%= address.name %></th>
+          <th>
+            <%= link_to "編集する", edit_address_path(address) %>
+            <%= link_to "削除する", address_path(address), method: :delete %>
+          </th>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 
 </main>

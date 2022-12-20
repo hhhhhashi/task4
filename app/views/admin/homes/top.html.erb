@@ -1,25 +1,41 @@
 <main>
   <h2>注文履歴一覧</h2>
+  
+  
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>購入日時</th>
+        <th>購入者</th>
+        <th>注文個数</th>
+        <th>注文ステータス</th>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <th><%=order.created_at %></th>
 
-  <% @orders.each do |order| %>
+          <th>
+            <%= link_to admin_order_path(order) do %>
+            <%=order.customer.last_name + order.customer.first_name %>
+            <% end %>
+          </th>
 
-  <p>購入日時</p>
-  <%=order.created_at %>
+          <th>
+            <% @total_quantitiy=0 %>
+            <% order.order_details.each do |order_detail| %>
+            <% @total_quantitiy=@total_quantitiy + order_detail.amount %>
+            <% end %>
+            <%= @total_quantitiy %>
+          </th>
 
-  <p>購入者</p>
-  <%= link_to admin_order_path(order) do %>
-  <%=order.customer.last_name + order.customer.first_name %>
-  <% end %>
+          <th>
+            <%=order.status_i18n %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <p>注文個数</p>
-  <% @total_quantitiy=0 %>
-  <% order.order_details.each do |order_detail| %>
-    <% @total_quantitiy=@total_quantitiy + order_detail.amount %>
-  <% end %>
-  <%= @total_quantitiy %>
-
-  <p>注文ステータス</p>
-  <%=order.status_i18n %>
-
-  <% end %>
 </main>

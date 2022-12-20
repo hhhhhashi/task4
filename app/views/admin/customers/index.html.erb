@@ -1,28 +1,39 @@
 <main>
   <h2>会員一覧</h2>
 
-  <% @customers.each do |customer| %>
 
-  <p>会員ID</p>
-  <%=customer.id %>
+  <div class="d-flex justify-content-between w-100">
+    <table class="table w-60">
+      <thead>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <th><%=customer.id %></th>
 
-  <p>氏名</p>
-  <%= link_to admin_customer_path(customer) do %>
-  <%=customer.last_name+customer.first_name %>
-  <% end %>
+          <th>
+            <%= link_to admin_customer_path(customer) do %>
+            <%=customer.last_name+customer.first_name %>
+            <% end %>
+          </th>
 
-  <p>メールアドレス</p>
-  <%=customer.email %>
+          <th><%=customer.email %></th>
 
-  <p>ステータス</p>
-    <% if customer.is_deleted == false %>
-       有効
-    <% else customer.is_deleted == true %>
-       退会
-    <% end %>
-
-  <% end %>
-
-
+          <th>
+            <% if customer.is_deleted == false %>
+             有効
+            <% else customer.is_deleted == true %>
+             退会
+            <% end %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 </main>
