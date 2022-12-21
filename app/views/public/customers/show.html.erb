@@ -1,5 +1,5 @@
 <main>
-  <h2>マイページ</h2>
+  <h2 class="mb-5">マイページ</h2>
 
   <dl class="row">
     <dt class="col-2"><h3>登録情報</h3></dt>
@@ -8,10 +8,10 @@
 
 
   <p>氏名</p>
-  <%= @customer.last_name %><% @customer.first_name %>
+  <%= @customer.last_name %><%= @customer.first_name %>
 
   <p>カナ</p>
-  <%= @customer.last_name_kana %><% @customer.first_name_kana %>
+  <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
 
   <p>郵便番号</p>
   <%= @customer.postal_code %>
@@ -25,7 +25,7 @@
   <p>メールアドレス</p>
   <%= @customer.email %>
 
-  <dl class="row">
+  <dl class="row mt-5">
     <dt class="col-2"><h3>配送先</h3></dt>
     <dd class="col-10"><%= link_to '一覧を見る', addresses_path ,class: "btn btn-primary" %></dd>
     <dt class="col-2"><h3>注文履歴</h3></dt>
