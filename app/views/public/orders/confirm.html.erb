@@ -2,8 +2,8 @@
   <h2>注文情報確認</h2>
 
   <div class="d-flex justify-content-between w-100">
-    <table class="table w-60">
-      <thead class="table-light">
+    <table class="table w-60 table-bordered">
+      <thead class="table-secondary">
         <th>商品名</th>
         <th>単価(税込)</th>
         <th>数量</th>
@@ -71,7 +71,7 @@
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
   <%= f.hidden_field :status, :value => "waiting_deposit" %>
 
-  <%= f.submit '注文を確定する' %>
+  <%= f.submit '注文を確定する' ,class: "btn btn-success" %>
 
   <% end %>
 </main>

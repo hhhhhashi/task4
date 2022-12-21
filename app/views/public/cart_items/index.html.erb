@@ -1,12 +1,12 @@
 <main>
   <h2>ショッピングカート</h2>
 
-  <%= link_to "カートを空にする", cart_items_path, method: :delete %>
+  <%= link_to "カートを空にする", cart_items_path, method: :delete ,class: "btn btn-danger"%>
 
 
   <div class="d-flex justify-content-between w-100">
-    <table class="table w-60">
-      <thead>
+    <table class="table w-60 table-bordered">
+      <thead class="table-secondary">
         <th>商品名</th>
         <th>単価(税込)</th>
         <th>数量</th>
@@ -24,13 +24,13 @@
           <th>
             <%= form_with model: cart_item do |f| %>
             <%=f.number_field :amount %>
-            <%= f.submit "変更" %>
+            <%= f.submit "変更",class: "btn btn-success" %>
             <% end %>
           </th>
           <th><%= (cart_item.item.price * 1.1).floor*cart_item.amount %></th>
           <th>
             <% if cart_item.customer == current_customer %>
-            <%= link_to "削除する", cart_item_path(cart_item), method: :delete %>
+            <%= link_to "削除する", cart_item_path(cart_item), method: :delete ,class: "btn btn-danger" %>
             <% end %>
           </th>
         </tr>
@@ -43,8 +43,8 @@
   <P>合計金額</P>
   <%= @total_price %>
 
-  <%= link_to "買い物を続ける", items_path %>
+  <%= link_to "買い物を続ける", items_path ,class: "btn btn-primary" %>
 
-  <%= link_to "情報入力に進む", new_order_path %>
+  <%= link_to "情報入力に進む", new_order_path ,class: "btn btn-success" %>
 
 </main>

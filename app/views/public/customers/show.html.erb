@@ -3,7 +3,7 @@
 
   <dl class="row">
     <dt class="col-2"><h3>登録情報</h3></dt>
-    <dd class="col-10"><%= link_to "編集する", information_edit_path %></dd>
+    <dd class="col-10"><%= link_to "編集する", information_edit_path ,class: "btn btn-success" %></dd>
   </dl>
 
 
@@ -24,12 +24,12 @@
 
   <p>メールアドレス</p>
   <%= @customer.email %>
-  
+
   <dl class="row">
     <dt class="col-2"><h3>配送先</h3></dt>
-    <dd class="col-10"><%= link_to '一覧を見る', addresses_path %></dd>
+    <dd class="col-10"><%= link_to '一覧を見る', addresses_path ,class: "btn btn-primary" %></dd>
     <dt class="col-2"><h3>注文履歴</h3></dt>
-    <dd class="col-10"><%= link_to '一覧を見る', orders_path %></dd>
+    <dd class="col-10"><%= link_to '一覧を見る', orders_path , class: "btn btn-primary" %></dd>
   </dl>
 
 </main>
