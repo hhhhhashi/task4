@@ -6,24 +6,25 @@
     <dd class="col-10"><%= link_to "編集する", information_edit_path ,class: "btn btn-success" %></dd>
   </dl>
 
+  <dl class="row">
+    <dt class="col-2"><p>氏名</p></dt>
+    <dd class="col-10"><%= @customer.last_name + @customer.first_name %></dd>
 
-  <p>氏名</p>
-  <%= @customer.last_name %><%= @customer.first_name %>
+    <dt class="col-2"><p>カナ</p></dt>
+    <dd class="col-10"><%= @customer.last_name_kana %><%= @customer.first_name_kana %></dd>
 
-  <p>カナ</p>
-  <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+    <dt class="col-2"><p>郵便番号</p></dt>
+    <dd class="col-10"><%= @customer.postal_code %></dd>
 
-  <p>郵便番号</p>
-  <%= @customer.postal_code %>
+    <dt class="col-2"><p>住所</p></dt>
+    <dd class="col-10"><%= @customer.address %></dd>
 
-  <p>住所</p>
-  <%= @customer.address %>
+    <dt class="col-2"><p>電話番号</p></dt>
+    <dd class="col-10"><%= @customer.telephone_number %></dd>
 
-  <p>電話番号</p>
-  <%= @customer.telephone_number %>
-
-  <p>メールアドレス</p>
-  <%= @customer.email %>
+    <dt class="col-2"><p>メールアドレス</p></dt>
+    <dd class="col-10"><%= @customer.email %></dd>
+  </dl>
 
   <dl class="row mt-5">
     <dt class="col-2"><h3>配送先</h3></dt>

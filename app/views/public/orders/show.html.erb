@@ -1,32 +1,34 @@
 <main>
-  <h2>注文履歴詳細</h2>
+  <h2 class="mb-4">注文履歴詳細</h2>
+  <h3 class="mb-4">注文情報</h3>
 
-  <h3>注文情報</h3>
-  <p>注文日</p>
-  <%= @order.updated_at %>
+  <dl class="row">
+    <dt class="col-2"><p>注文日</p></dt>
+    <dd class="col-10"><%= @order.updated_at %></dd>
 
-  <p>配送先</p>
-  <%= @order.address %>
+    <dt class="col-2"><p>配送先</p></dt>
+    <dd class="col-10"><%= @order.address %></dd>
 
-  <p>支払方法</p>
-  <%= @order.payment_method_i18n %>
+    <dt class="col-2"><p>支払方法</p></dt>
+    <dd class="col-10"><%= @order.payment_method_i18n %></dd>
 
-  <p>ステータス</p>
-  <%= @order.status_i18n %>
+    <dt class="col-2"><p>ステータス</p></dt>
+    <dd class="col-10"><%= @order.status_i18n %></dd>
+  </dl>
 
-  <h3>請求情報</h3>
-  <p>商品合計</p>
-  <%= @order.total_payment %>
+  <h3 class="mb-4">請求情報</h3>
+  <dl class="row">
+    <dt class="col-2"><p>商品合計</p></dt>
+    <dd class="col-10"><%= @order.total_payment %></dd>
 
-  <p>配送料</p>
-  <p>800</p>
+    <dt class="col-2"><p>配送先</p></dt>
+    <dd class="col-10"><p>800</p></dd>
 
-  <p>ご請求額</p>
-  <%= @order.total_payment + 800 %>
+    <dt class="col-2"><p>ご請求額</p></dt>
+    <dd class="col-10"><%= @order.total_payment + 800 %></dd>
+  </dl>
 
-  <h3>注文内容</h3>
-
-
+  <h3 class="mb-4">注文内容</h3>
   <div class="d-flex justify-content-between w-100">
     <table class="table w-60 table table-bordered">
       <thead class="table-secondary">

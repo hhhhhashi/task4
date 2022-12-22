@@ -1,15 +1,24 @@
 <main>
-  <h2>商品編集</h2>
+  <h2 class="mb-4">商品編集</h2>
 
   <%= form_with model: @item,url: admin_item_path(@item), method: :patch do |f| %>
-    <p>商品画像<%= f.file_field :image, accept: "image/*" %></p>
-    <p>商品名<%= f.text_field :name  %></p>
-    <p>商品説明<%= f.text_area :introduction %></p>
-    <p>税抜価格<%= f.number_field :price %><p>円</p></p>
+    <dl class="row">
+      <dt class="col-2"><P>商品画像</P></dt>
+      <dd class="col-10"><%= f.file_field :image, accept: "image/*" %></dd>
+
+      <dt class="col-2"><P>商品名</P></dt>
+      <dd class="col-10"><%= f.text_field :name %></dd>
+
+      <dt class="col-2"><P>商品説明</P></dt>
+      <dd class="col-10"><%= f.text_area :introduction %></dd>
+
+      <dt class="col-2"><P>税抜価格</P></dt>
+      <dd class="col-10"><%= f.number_field :price %>円</dd>
+    </dl>
 
     <p>販売ステータス</p>
-    <p>販売中</p><%= f.radio_button(:is_active, true) %>
-    <p>販売停止中</p><%= f.radio_button(:is_active, false) %>
-    <%= f.submit '変更を保存' %>
+    <p><%= f.radio_button(:is_active, true) %>販売中</p>
+    <p><%= f.radio_button(:is_active, false) %>販売停止中</p>
+    <%= f.submit '変更を保存',class: "btn btn-success" %>
   <% end %>
 </main>

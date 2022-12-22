@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders=current_customer.orders
-    @cart_items=current_customer.cart_items.all
+    #@order_details=current_customer.orders.order_details.all
   end
 
   def show
@@ -19,7 +19,6 @@ class Public::OrdersController < ApplicationController
     @order= Order.new(order_params)
     #@order.status=0
     @order.save
-    redirect_to complete_path
 
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
@@ -30,6 +29,10 @@ class Public::OrdersController < ApplicationController
       @order_detail.making_status = 0
       @order_detail.save
     end
+
+    @cart_items.destroy_all
+
+    redirect_to complete_path
   end
 
   def confirm

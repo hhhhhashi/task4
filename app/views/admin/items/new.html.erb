@@ -1,21 +1,23 @@
-<h2>商品新規登録</h2>
+<h2 class="mb-4">商品新規登録</h2>
   <%= form_with model: @item, url: admin_items_path do |f| %>
 
-    <p>画像</p>
-    <%= f.file_field :image, accept: "image/*" %>
+    <dl class="row">
+      <dt class="col-2"><P>商品画像</P></dt>
+      <dd class="col-10"><%= f.file_field :image, accept: "image/*" %></dd>
 
-    <p>商品名</p>
-    <%= f.text_field :name %>
+      <dt class="col-2"><P>商品名</P></dt>
+      <dd class="col-10"><%= f.text_field :name %></dd>
 
-    <p>説明</p>
-    <%= f.text_field :introduction %>
+      <dt class="col-2"><P>商品説明</P></dt>
+      <dd class="col-10"><%= f.text_area :introduction %></dd>
 
-    <p>税抜価格</p>
-    <%= f.text_field :price %>
+      <dt class="col-2"><P>税抜価格</P></dt>
+      <dd class="col-10"><%= f.number_field :price %>円</dd>
+    </dl>
 
     <p>販売ステータス</p>
-    <p>販売中</p><%= f.radio_button(:is_active, true) %>
-    <p>販売停止中</p><%= f.radio_button(:is_active, false) %>
+    <p><%= f.radio_button(:is_active, true) %>販売中</p>
+    <p><%= f.radio_button(:is_active, false) %>販売停止中</p>
 
-    <%= f.submit '新規登録' %>
+    <%= f.submit '新規登録',class: "btn btn-success" %>
   <% end %>
