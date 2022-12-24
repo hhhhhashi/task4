@@ -1,29 +1,31 @@
 <main>
+  <h2 class="mb-4">注文履歴詳細</h2>
+  <dl class="row">
+    <dt class="col-2"><p>購入者</p></dt>
+    <dd class="col-10"><%= @order.customer.last_name + @order.customer.first_name %></dd>
 
-  <h2>注文履歴詳細</h2>
-  <p>購入者</p>
-  <%= @order.customer.last_name + @order.customer.first_name %>
+    <dt class="col-2"><p>注文日</p></dt>
+    <dd class="col-10"><%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></dd>
 
-  <p>注文日</p>
-  <%= @order.created_at %>
+    <dt class="col-2"><p>配送先</p></dt>
+    <dd class="col-10">
+      <%= @order.postal_code %>
+      <%= @order.address %>
+      <%= @order.name %>
+    </dd>
 
-  <p>配送先</p>
-  <%= @order.postal_code %>
-  <%= @order.address %>
-  <%= @order.name %>
+    <dt class="col-2"><p>支払方法</p></dt>
+    <dd class="col-10"><%= @order.payment_method_i18n %></dd>
 
-  <p>支払方法</p>
-  <%= @order.payment_method_i18n %>
-
-  <p>注文ステータス</p>
-  <%= form_with model: @order,url:admin_order_path(@order) do |f| %>
-  <%#= f.select :status,*[0..4] %>
-  <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
-  <%= f.submit "更新" %>
-
-  <% end %>
-
-
+    <dt class="col-2"><p>注文ステータス</p></dt>
+    <dd class="col-10">
+      <%= form_with model: @order,url:admin_order_path(@order) do |f| %>
+      <%#= f.select :status,*[0..4] %>
+      <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+      <%= f.submit "更新",class: "btn btn-success" %>
+      <% end %>
+    </dd>
+  </dl>
 
   <div class="d-flex justify-content-between w-100">
   <table class="table w-60">
@@ -47,7 +49,7 @@
           <th>
             <%= form_with model: order_detail,url:admin_order_detail_path(order_detail) do |f| %>
             <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
-            <%= f.submit "更新" %>
+            <%= f.submit "更新",class: "btn btn-success" %>
             <% end %>
           </th>
         </tr>
@@ -56,13 +58,15 @@
   </table>
   </div>
 
-  <p>商品合計</p>
-  <%= @total_price %>
+  <dl class="row">
+    <dt class="col-2"><p>合計金額</p></dt>
+    <dd class="col-10"><%= @total_price %></dd>
 
-  <p>送料</p>
-  <p>800円</P>
+    <dt class="col-2"><p>送料</p></dt>
+    <dd class="col-10">800円</dd>
 
-  <p>請求金額合計</p>
-  <%= @total_price + 800 %>
+    <dt class="col-2"><p>請求金額合計</p></dt>
+    <dd class="col-10"><%= @total_price + 800 %></dd>
+  </dl>
 
 </main>
