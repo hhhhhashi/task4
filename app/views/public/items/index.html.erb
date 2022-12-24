@@ -1,19 +1,30 @@
 <main>
-  <h2>商品一覧</h2>
+  <h2 class="mb-4">商品一覧</h2>
 
-  <% @items.each do |item| %>
+  <div class="container">
+    <div class="row">
+      <% @items.each do |item| %>
+        <div class="mr-auto">
+          <div>
+            <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_profile_image(200,200) %>
+            <% end %>
+          </div>
 
-    <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_profile_image(200,200) %>
-    <% end %>
+          <div>
+            <%= link_to item_path(item.id) do %>
+            <%= item.name %>
+            <% end %>
+          </div>
 
-    <%= link_to item_path(item.id) do %>
-    <%= item.name %>
-    <% end %>
+          <div>
+            ¥<%= item.price %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-    <%= item.price %>
-
- <% end %>
  <%= paginate @items %>
  <%#= ページネイト8つにしたい %>
 

@@ -1,20 +1,27 @@
 <main>
-  <%= image_tag @item.get_profile_image(200,200) %>
-
-  <P>商品名<%= @item.name %></P>
-
-  <p>商品説明<%= @item.introduction %></p>
-
-  <p>税込価格(税抜価格)<%= @item.price %></p>
+  <%= image_tag @item.get_profile_image(200,200),class: "mb-4" %>
 
   <%= form_with model: @cart_item, url: cart_items_path  do |f| %>
 
-    <p>個数選択</p>
-    <%= f.select :amount,*[1..10] %>
+  <dl class="row">
+    <dt class="col-2"><p>商品名</p></dt>
+    <dd class="col-10"><%= @item.name %></dd>
+
+    <dt class="col-2"><p>商品説明</p></dt>
+    <dd class="col-10"><%= @item.introduction %></dd>
+
+    <dt class="col-2"><p>税抜価格</p></dt>
+    <dd class="col-10"><%= @item.price %></dd>
+
+    <dt class="col-2"><p>個数選択</p></dt>
+    <dd class="col-10">
+      <%= f.select :amount,*[1..10] %>
     <%#=文字を入れたい%>
+      <%= f.hidden_field :item_id, value:@item.id %>
+      <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
+    </dd>
 
-    <%= f.hidden_field :item_id, value:@item.id %>
-
-    <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
+  </dl>
   <% end %>
+
 </main>
