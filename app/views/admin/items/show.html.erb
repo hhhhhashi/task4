@@ -11,8 +11,8 @@
       <dt class="col-2"><P>商品説明</P></dt>
       <dd class="col-10"><%= @item.introduction %></dd>
 
-      <dt class="col-2"><P>税抜価格(税抜価格)</P></dt>
-      <dd class="col-10"><%= @item.price %>円</dd>
+      <dt class="col-2"><P>税込価格(税抜価格)</P></dt>
+      <dd class="col-10"><%= (@item.price * 1.1).floor %>(<%= @item.price %>)円</dd>
 
       <dt class="col-2"><P>販売ステータス</P></dt>
       <dd class="col-10">

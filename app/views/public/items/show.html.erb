@@ -10,9 +10,10 @@
     <dt class="col-2"><p>商品説明</p></dt>
     <dd class="col-10"><%= @item.introduction %></dd>
 
-    <dt class="col-2"><p>税抜価格</p></dt>
-    <dd class="col-10"><%= @item.price %></dd>
+    <dt class="col-2"><p>税込価格</p></dt>
+    <dd class="col-10">¥<%= (@item.price * 1.1).floor %></dd>
 
+    <% if customer_signed_in? %>
     <dt class="col-2"><p>個数選択</p></dt>
     <dd class="col-10">
       <%= f.select :amount,*[1..10] %>
@@ -20,6 +21,8 @@
       <%= f.hidden_field :item_id, value:@item.id %>
       <%= f.submit 'カートに入れる' ,class: "btn btn-success"%>
     </dd>
+    <% else %>
+    <% end %>
 
   </dl>
   <% end %>

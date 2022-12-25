@@ -11,11 +11,15 @@
       <% @items.each do |item| %>
         <div class="mr-auto">
           <div>
+            <%= link_to item_path(item.id) do %>
             <%= image_tag item.get_profile_image(200,200) %>
+            <% end %>
           </div>
 
           <div>
+            <%= link_to item_path(item.id) do %>
             <%= item.name %>
+            <% end %>
           </div>
 
           <div>
@@ -26,6 +30,6 @@
     </div>
   </div>
 
- <%= paginate @items %>
+ <%= paginate @items,class: "mt-4" %>
 
 </main>
